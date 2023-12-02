@@ -1,0 +1,78 @@
+<app-user-header></app-user-header>
+<!-- Bouton pour ouvrir le modal -->
+<div class="container mt-5">
+<button class="btn my-5 py-2 fw-bold " (click)="openModal(yourModalContent)" style="background-color: #D9b; color: white;">Enregistrer une évaluation</button>
+
+<!-- Modal -->
+<ng-template #yourModalContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" style="color: #D9b; margin: 0 auto; font-weight: bold;" id="modal-basic-title">Enregistrement d'évaluation</h4>
+    <button type="button" class="close btn btn-outline-danger" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- Formulaire d'enregistrement -->
+    <form (ngSubmit)="saveEvaluation()" #evaluationForm="ngForm">
+      <div class="mb-3">
+        <label for="semester" class="form-label">Semester</label>
+        <input type="text" id="semester" name="semester" class="form-control" [(ngModel)]="evaluationFormModel.semester" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" id="date" name="date" class="form-control" [(ngModel)]="evaluationFormModel.date" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <input type="text" id="type" name="type" class="form-control" [(ngModel)]="evaluationFormModel.type" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <input type="text" id="status" name="status" class="form-control" [(ngModel)]="evaluationFormModel.status" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="subject" class="form-label">Subject</label>
+        <input type="text" id="subject" name="subject" class="form-control" [(ngModel)]="evaluationFormModel.subject" required>
+      </div>
+
+      <button type="submit" class="btn" style="background-color: #D9b; color: white; padding: 5px; font-weight: bold;">Enregistrer l'évaluation</button>
+    </form>
+  </div>
+</ng-template>
+
+<div class="tablef" >
+<table style="width: 180vh;">
+  <tr>
+    <th>Semestre</th>
+    <th>Date</th>
+    <th>Type</th>
+    <th>Statut</th>
+    <th>Matière</th>
+    <th>Note</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let evaluation of evaluations; let i = index">
+    <td>{{ evaluation.semester }}</td>
+    <td>{{ evaluation.date }}</td>
+    <td>{{ evaluation.type }}</td>
+    <td>{{ evaluation.status }}</td>
+    <td>{{ evaluation.subject }}</td>
+    <td>
+      <input class="me-5" type="number" [(ngModel)]="evaluation.grade" />
+      <button class="btn btn-outline-secondary me-0" (click)="assignGrade(i, evaluation.grade)">✅
+      </button>
+    </td>
+    <td>
+      <button class="btn btn-outline-danger" (click)="deleteEvaluation(i)">❌</button>
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+<app-user-footer></app-user-footer>
+<!-- noel j'ai encore fait un push et tu me dit de recommencer -->
+<!-- je vais te taper hein -->

@@ -18,6 +18,7 @@ import { GestionEtudiantsComponent } from './administrateur/gestion-etudiants/ge
 import { GestionProfsComponent } from './administrateur/gestion-profs/gestion-profs.component';
 import { AdminComponent } from './administrateur/admin/admin.component';
 import { NgModule } from '@angular/core';
+import { MaintenanceComponent } from './maintenance/maintenance.component';
 
 @NgModule({
 
@@ -35,6 +36,7 @@ import { NgModule } from '@angular/core';
     FooterAdminComponent,
     GestionMatieresComponent,
     GestionClassesComponent,
+    MaintenanceComponent,
   ],
   imports: [
     BrowserModule,

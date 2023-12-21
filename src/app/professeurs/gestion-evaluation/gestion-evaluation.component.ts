@@ -2,6 +2,7 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { Component, OnInit } from '@angular/core';
 import { Evaluations } from 'src/app/models/evaluation';
 import { GestionNotesService } from 'src/app/service/gestion-notes.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-gestion-evaluation',
@@ -37,6 +38,8 @@ export class GestionEvaluationComponent implements OnInit {
   openModal(content: any) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
   }
+
+  //Méthode d'ajout évaluation"'
   saveEvaluation() {
     const evaluation: Evaluations = {
       idEvaluation: 0,
@@ -75,36 +78,53 @@ export class GestionEvaluationComponent implements OnInit {
   closeModal() {
     this.modalService.dismissAll();
   }
-
-  deleteEvaluation(index: number) {
+  
+//Méthode de suppression d'une  evaluation enregistrées
+  async deleteEvaluation(index: number) {
     if (this.evaluations[index].status === 'faite') {
       // Ne supprimez pas une évaluation faite
-      alert("Impossible de supprimer une évaluation déjà faite.");
+      Swal.fire('Impossible de supprimer', 'Impossible de supprimer une évaluation déjà faite.', 'error');
       return;
     }
-
-    this.evaluationService.deleteEvaluation(index);
-  }
-  assignGrade(index: number, gradeInput: number | null) {
-    const evaluation = this.evaluations[index];
-
-    if (evaluation.status === 'en_cours' || evaluation.status === 'reportee') {
-      // L'évaluation est en cours ou reportée, ne permet pas d'attribuer une note
-
-      alert("Impossible d'attribuer une note à une évaluation en cours ou reportée.");
-      return;
-    }
-
-    if (gradeInput !== null) {
-      const grade = parseFloat(gradeInput.toString());
-      if (!isNaN(grade) && grade >= 0 && grade <= 20) {
-        this.evaluationService.assignGrade(index, grade);
-      } else {
-        alert("Veuillez entrer une note valide entre 0 et 20.");
-      }
+  
+    const result = await Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: 'Voulez-vous vraiment supprimer cette évaluation ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, supprimer !'
+    });
+  
+    if (result.isConfirmed) {
+      // Appel à la méthode de service pour supprimer l'évaluation
+      this.evaluationService.deleteEvaluation(index);
+      Swal.fire('Supprimé !', 'L\'évaluation a été supprimée.', 'success');
     } else {
-      alert("La note est nulle.");
+      // Si l'utilisateur annule la suppression
+      Swal.fire('Annulé', 'La suppression a été annulée.', 'info');
     }
   }
+  
+  // assignGrade(index: number, gradeInput: number | null) {
+  //   const evaluation = this.evaluations[index];
+
+  //   if (evaluation.status === 'en_cours' || evaluation.status === 'reportee') {
+
+  //     alert("Impossible d'attribuer une note à une évaluation en cours ou reportée.");
+  //     return;
+  //   }
+
+  //   if (gradeInput !== null) {
+  //     const grade = parseFloat(gradeInput.toString());
+  //     if (!isNaN(grade) && grade >= 0 && grade <= 20) {
+  //       this.evaluationService.assignGrade(index, grade);
+  //     } else {
+  //       alert("Veuillez entrer une note valide entre 0 et 20.");
+  //     }
+  //   } else {
+  //     alert("La note est nulle.");
+  //   }
+  // }
 }
-// 😫😫sonou na si li

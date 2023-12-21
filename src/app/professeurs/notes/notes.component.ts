@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NoteService, Note } from 'src/app/service/note.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-notes',
@@ -56,11 +57,28 @@ export class NotesComponent {
       }
     );
   }
-
-  deleteNoteAndClose(index: number) {
-    this.noteService.deleteNote(index);
+  //Méthode pour  supprimer une note
+  async deleteNoteAndClose(index: number) {
+    const result = await Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: 'Voulez-vous vraiment supprimer cette note ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Oui, supprimer !'
+    });
+  
+    if (result.isConfirmed) {
+      this.noteService.deleteNote(index);
+      await Swal.fire('Supprimée !', 'La note a été supprimée avec succès.', 'success');
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+      await Swal.fire('Annulé', 'La suppression de la note a été annulée.', 'info');
+    }
+  
     this.modalService.dismissAll();
   }
+  
 
   saveNote() {
     if (this.noteForm.valid) {
@@ -77,10 +95,31 @@ export class NotesComponent {
     }
   }
 
-  updateNote(index: number | null, result: any) {
+  //Méthode pour  modifier une note
+  async updateNote(index: number | null, resultData: any) {
     if (index !== null) {
-      const updatedNote: Note = { ...this.notes[index], ...result };
-      this.noteService.updateNote(index, updatedNote);
+      const updatedNote: Note = { ...this.notes[index], ...resultData };
+  
+      const swalResult = await Swal.fire({
+        title: 'Êtes-vous sûr ?',
+        text: 'Voulez-vous vraiment mettre à jour cette note ?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Oui, mettre à jour !',
+        cancelButtonText: 'Annuler'
+      });
+  
+      if (swalResult.isConfirmed) {
+        this.noteService.updateNote(index, updatedNote);
+        await Swal.fire('Note mise à jour', 'La note a été mise à jour avec succès.', 'success');
+      } else if (swalResult.dismiss === Swal.DismissReason.cancel) {
+        await Swal.fire('Annulé', 'La mise à jour de la note a été annulée.', 'info');
+      }
+    } else {
+      await Swal.fire('Erreur', 'La note n\'a pas pu être mise à jour.', 'error');
     }
   }
+  
 }

@@ -33,16 +33,6 @@
 </div>
 
 
-<!-- <div class="navAdmin container-fluid d-flex justify-content-end p-0">
-    <button class="btn  btnProf m-2" [ngClass]="{'fond-bleu': boutonActif === 1}" 
-    (click)="showComponant('gestionProfs')" (click)="boutonActif = 1" >Gestion Formateurs</button>
-    <button class="btn  btnEtudiant m-2" [ngClass]="{'fond-bleu': boutonActif === 2}"
-    (click)="showComponant('gestionEtud')" (click)="boutonActif = 2" >Gestion Etudiants</button>
-    <button class="btn  btnProf m-2" [ngClass]="{'fond-bleu': boutonActif === 3}"
-    (click)="showComponant('gestionMatieres')" (click)="boutonActif = 3" >Gestion Matieres</button>
-    <button class="btn  btnProf m-2" [ngClass]="{'fond-bleu': boutonActif === 4}"
-    (click)="showComponant('gestionClasses')" (click)="boutonActif = 4" >Gestion Classes</button>
-</div> -->
 
 <app-gestion-profs class="gestionProfs" id="gestionProfs"  *ngIf="currentContent === 'gestionProfs'"></app-gestion-profs>
 <app-gestion-etudiants class="gestionEtud" id="gestionEtud" *ngIf="currentContent === 'gestionEtud'"></app-gestion-etudiants>

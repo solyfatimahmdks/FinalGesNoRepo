@@ -9,6 +9,7 @@ import { EtudiantsComponent } from './etudiants/etudiants.component';
 import { GestionEvaluationComponent } from './professeurs/gestion-evaluation/gestion-evaluation.component';
 import { NotesComponent } from './professeurs/notes/notes.component';
 import { NotesModule } from './professeurs/note/note.module';
+import { MaintenanceComponent } from './maintenance/maintenance.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,8 @@ const routes: Routes = [
   // { path: 'etudiant/:id', component: EtudiantsComponent },
   { path: 'notes', component: NotesComponent },
   { path: 'evaluation', component: GestionEvaluationComponent },
+  { path: 'maintenance', component: MaintenanceComponent }
+
 ];
 
 @NgModule({

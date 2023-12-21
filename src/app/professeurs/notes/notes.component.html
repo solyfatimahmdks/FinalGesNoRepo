@@ -1,9 +1,13 @@
 <app-user-header></app-user-header>
 
 <div class="container mt-5">
+
+  <!-- Bouton: ajout de note-->
   <button class="btn my-5 py-2 fw-bold" (click)="openModal(noteModalContent)" style="background-color: #D9b; color: white;">
     Enregistrer une note
   </button>
+
+  <!-- Modal: formulaire d'attribution de notes -->
   <ng-template #noteModalContent let-modal>
     <div class="modal-header">
       <h4 class="modal-title" id="modal-basic-title">Enregistrement de la note</h4>
@@ -48,6 +52,7 @@
     </div>
   </ng-template>
 
+  <!-- Table de la liste des notes émises -->
   <div class="tablef">
     <table class="table">
       <thead>

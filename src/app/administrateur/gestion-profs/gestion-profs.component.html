@@ -8,13 +8,6 @@
                 <hr>
 
                 <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item my-2" [ngClass]="{'fond-bleu': boutonActif === 1}"
-                        (click)="showContent('apercuForm')" (click)="boutonActif = 1">
-                        <a class="nav-link text-white">
-                            Aperçu formateurs
-                        </a>
-                    </li>
-
                     <li class="nav-item my-2" [ngClass]="{'fond-bleu': boutonActif === 2}"
                         (click)="showContent('listeFormateurs')" (click)="boutonActif = 2">
                         <a class="nav-link text-white">
@@ -152,33 +145,33 @@
                         <div class="w-100">
                             {{currentFormateur?.descriptF}}
                         </div>
-                    </div>
-                </div>
-                <div class="traitL my-2"></div>
-                <div class="row mt-2">
-                    <div class="col-12 col-md-4">
-                        <span class="titleForm titre fw-bold fs-5">Classe monitoré</span>
-                        <p>L1</p>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <span class="titleForm titre fw-bold fs-5">Matiéres dispensées</span>
-                        <ul>
-                            <li>_ Anglais</li>
-                            <li>_ français</li>
-                            <li>_ Maths</li>
-                            <li>_ Histoire</li>
-                            <li>_ Geographie</li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <span class="titleForm titre fw-bold fs-5">Evaluations</span>
-                        <ul>
-                            <li><a href="#">_ Evaluation Anglais</a></li>
-                            <li><a href="#">_ Evaluation français</a></li>
-                            <li><a href="#">_ Evaluation Maths</a></li>
-                            <li><a href="#">_ Evaluation Histoire</a></li>
-                            <li><a href="#">_ Evaluation Geographie</a></li>
-                        </ul>
+                        <div class="row mt-2">
+                            <div class="traitL my-2 me-3"></div>
+                            <div class="col-12 col-md-4">
+                                <span class="titleForm titre fw-bold fs-5">Classe monitoré</span>
+                                <p>L1</p>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <span class="titleForm titre fw-bold fs-5">Matiéres dispensées</span>
+                                <ul>
+                                    <li>_ Anglais</li>
+                                    <li>_ français</li>
+                                    <li>_ Maths</li>
+                                    <li>_ Histoire</li>
+                                    <li>_ Geographie</li>
+                                </ul>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <span class="titleForm titre fw-bold fs-5">Evaluations</span>
+                                <ul>
+                                    <li><a href="#">_ Evaluation Anglais</a></li>
+                                    <li><a href="#">_ Evaluation français</a></li>
+                                    <li><a href="#">_ Evaluation Maths</a></li>
+                                    <li><a href="#">_ Evaluation Histoire</a></li>
+                                    <li><a href="#">_ Evaluation Geographie</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

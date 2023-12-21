@@ -44,6 +44,7 @@
   </div>
 </ng-template>
 
+<!-- Table de la liste des evaluations  enregistrées -->
 <div class="tablef" >
 <table style="width: 180vh;">
   <tr>
@@ -52,7 +53,6 @@
     <th>Type</th>
     <th>Statut</th>
     <th>Matière</th>
-    <th>Note</th>
     <th>Action</th>
   </tr>
   <tr *ngFor="let evaluation of evaluations; let i = index">
@@ -62,11 +62,6 @@
     <td>{{ evaluation.status }}</td>
     <td>{{ evaluation.subject }}</td>
     <td>
-      <input class="me-5" type="number" [(ngModel)]="evaluation.grade" />
-      <button class="btn btn-outline-secondary me-0" (click)="assignGrade(i, evaluation.grade)">✅
-      </button>
-    </td>
-    <td>
       <button class="btn btn-outline-danger" (click)="deleteEvaluation(i)">❌</button>
     </td>
   </tr>
@@ -74,5 +69,3 @@
 </div>
 </div>
 <app-user-footer></app-user-footer>
-<!-- noel j'ai encore fait un push et tu me dit de recommencer -->
-<!-- je vais te taper hein -->

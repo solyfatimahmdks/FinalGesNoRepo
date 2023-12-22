@@ -3,7 +3,7 @@
 }
 
 .trait {
-    border: 2px solid #DD99BB;
+    border: 2px solid #7c1843;
     width: 20%;
     margin: 0 auto;
 }
@@ -14,18 +14,18 @@
 }
 
 .fond-bleu {
-    background-color: #DD99BB !important;
+    background-color: #7c1843 !important;
 }
 
 .btnAjt {
-    color: #DD99BB !important;
+    color: #7c1843 !important;
 }
 
 .btnDet {
     background-color: white;
-    color: #DD99BB;
+    color: #7c1843;
 }
 
 .titre {
-    color: #DD99BB;
+    color: #7c1843;
 }

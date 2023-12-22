@@ -9,12 +9,12 @@ header {
 }
 .nav-link:focus-within{
   background-color: white;
-  color: #D9B !important;
+  color: #7C1843 !important;
 
 }
 .nav-link:hover{
   background-color: white;
-  color: #D9B !important;
+  color: #7C1843 !important;
   /* text-align: center; */
 }
 

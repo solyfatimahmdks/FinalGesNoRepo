@@ -7,11 +7,11 @@
   }
   .nav-link:focus-within{
     background-color: white;
-    color: #D9B !important;
+    color: #7C1843 !important;
   }
   .nav-link:hover{
     background-color: white;
-    color: #D9B !important;
+    color: #7C1843 !important;
     text-align: center;
   }
   
@@ -27,11 +27,11 @@
   .btnev{
     color: white;
     font-weight: bold;
-    background-color: #D9B;
+    background-color: #7C1843;
   }
   .btnev:hover{
     background-color: white;
-    color: #D9B;
+    color: #7C1843;
   }
   .sidebar a {
     padding: 10px;

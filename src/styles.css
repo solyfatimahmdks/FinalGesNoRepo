@@ -19,34 +19,34 @@ body {
 }
 
 .sidebarContainer{
-    background-color: #D9B;
+    background-color: #7C1843;
     color: white;
 }
 
 .fond-bleu a {
     background-color: #fff;
-    color: #D9B !important;
+    color: #7C1843 !important;
 }
 
 .fond-bleu {
-    background-color: #DD99BB !important;
+    background-color: #7c1843 !important;
 }
 
 .btnAjt {
-    color: #DD99BB !important;
+    color: #7c1843 !important;
 }
 
 .btnDet {
     background-color: white;
-    color: #DD99BB;
+    color: #7c1843;
 }
 
 .titre {
-    color: #DD99BB;
+    color: #7c1843;
 }
 
 .save{
-    background-color: #DD99BB !important;
+    background-color: #7c1843 !important;
     color: #fff !important;
 }
 

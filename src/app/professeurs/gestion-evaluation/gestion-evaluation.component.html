@@ -1,12 +1,12 @@
 <app-user-header></app-user-header>
 <!-- Bouton pour ouvrir le modal -->
 <div class="container mt-5">
-<button class="btn my-5 py-2 fw-bold " (click)="openModal(yourModalContent)" style="background-color: #D9b; color: white;">Enregistrer une évaluation</button>
+<button class="btn my-5 py-2 fw-bold " (click)="openModal(yourModalContent)" style="background-color: #7c1843; color: white;">Enregistrer une évaluation</button>
 
 <!-- Modal -->
 <ng-template #yourModalContent let-modal>
   <div class="modal-header">
-    <h4 class="modal-title" style="color: #D9b; margin: 0 auto; font-weight: bold;" id="modal-basic-title">Enregistrement d'évaluation</h4>
+    <h4 class="modal-title" style="color: #7c1843; margin: 0 auto; font-weight: bold;" id="modal-basic-title">Enregistrement d'évaluation</h4>
     <button type="button" class="close btn btn-outline-danger" aria-label="Close" (click)="closeModal()">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -39,7 +39,7 @@
         <input type="text" id="subject" name="subject" class="form-control" [(ngModel)]="evaluationFormModel.subject" required>
       </div>
 
-      <button type="submit" class="btn" style="background-color: #D9b; color: white; padding: 5px; font-weight: bold;">Enregistrer l'évaluation</button>
+      <button type="submit" class="btn" style="background-color: #7c1843; color: white; padding: 5px; font-weight: bold;">Enregistrer l'évaluation</button>
     </form>
   </div>
 </ng-template>

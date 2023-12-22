@@ -8,11 +8,12 @@
 .formulaireContainer{
     width: 30%;
     margin: 5% auto !important;
-    background-color: #DD99BB;
+    background-color: #7c1843;
     color: #FFF;
 }
 
 .btnLogin{
-    background-color: #F2D4CC;
+    background-color: white;
     border: none;
+    color: #7c1843;
 }
